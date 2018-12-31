@@ -15,14 +15,18 @@ is used to score the replies and the program responds with the output with the h
 <h3>Client Chatbot Interaction Diagram</h3>
 <img src="chatbot_client_interaction_diagram.jpg" alt="interaction diagram">
 
-<h2>Messaging Service
-<br>Server(Node.js, MySql, XMPP(<a href="https://www.ejabberd.im/">Ejabberd</a>), Docker)
-<br>Android App(Java, Sqlite, XMPP(<a href="https://github.com/igniterealtime/Smack">Smack</a>))</h2>
+<h2>Messaging Service</h2>
+<h3><br>Server(Node.js, MySql, XMPP(<a href="https://www.ejabberd.im/">Ejabberd</a>), Docker)
+<br>Android App(Java, Sqlite, XMPP(<a href="https://github.com/igniterealtime/Smack">Smack</a>))</h3>
 
 <h3>Message Syncing Between Devices </h3>
-<h4><a href="https://xmpp.org/extensions/xep-0313.html">Message Archive</a>, HTTP requests</h3>
+<h4><a href="https://xmpp.org/extensions/xep-0313.html">Message Archive</a>, HTTP requests</h4>
 <iframe width="560" height="400" src="https://www.youtube.com/embed/B7QSXHUyd3U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<h4>How I built it</h4>
+<p>Using the Docker version of an XMPP framework <a href="https://www.ejabberd.im/">Ejabberd</a> I enabled the module archive messaging and 
+connected it to a MySql database. Every time a message is passed in before delivering it to the recipient Ejabberd archives the message into the database.
+ For archiving the dialog list I set up a trigger in the MySql database such that when a archive message is inserted the dialog list for the user is also updated.</p>
+<img src="Archive_Msg_Diagram.jpg" alt="archive message diagram">
 
 <iframe width="560" height="400" src="https://www.youtube.com/embed/7ycihtTGqsM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <iframe width="560" height="400" src="https://www.youtube.com/embed/dOUVLUR15P0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
