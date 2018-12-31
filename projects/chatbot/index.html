@@ -7,7 +7,7 @@ title: Chatbot
 <h2>Chatbot(Tensorflow, Python, XMPP, Docker)</h2>
 <iframe width="700" height="700" src="https://www.youtube.com/embed/3hVw9_ZETow" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h3>How I Built It</h3><p>I built the chatbot model following a <a href="https://pythonprogramming.net/chatbot-deep-learning-python-tensorflow/">Tutorial</a>. 
-The model is based on 170 million reddit comments that I pre-proccessed using python and sqlite.
+The model is based on 170 million Reddit comments that I pre-proccessed using python and sqlite.
 Training the model took 1 week with a GTX 1080ti. After training I put the model in a tensorflow docker container and used a python 
   <a href="https://docs.zombofant.net/aioxmpp/devel/">XMPP library</a> to deploy it. When a request comes the text is inputed in the tensorflow
 library which outputs 30 suggested replies. Afterwards, a python library <a href="https://pypi.org/project/python-Levenshtein/">Levenshtein</a>
