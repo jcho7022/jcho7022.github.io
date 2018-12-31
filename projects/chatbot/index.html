@@ -11,7 +11,7 @@ The model is based on 170 million Reddit comments that I pre-proccessed using py
 Training the model took 1 week with a GTX 1080ti. After training I put the model in a tensorflow docker container and used a python 
   <a href="https://docs.zombofant.net/aioxmpp/devel/">XMPP library</a> to deploy it. When a request comes the text is inputed in the tensorflow
 library which outputs 30 suggested replies. Afterwards, a python library <a href="https://pypi.org/project/python-Levenshtein/">Levenshtein</a>
-is used to score the replies and the program responds with the output with the highest score.</p>
+is used to score the outputs and returns the output with the highest score.</p>
 <h3>Client Chatbot Interaction Diagram</h3>
 <img src="chatbot_client_interaction_diagram.jpg" alt="interaction diagram">
 <p><br><br></p>
