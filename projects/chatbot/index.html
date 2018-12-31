@@ -2,30 +2,30 @@
 layout: default
 title: Chatbot
 ---
-<h1>Chatbot & Android Messaging Application</h1>
+<h1>Chatbot & Messaging Server/Applcation</h1>
  
 <h2>Chatbot(Tensorflow, Python, XMPP, Docker)</h2>
-<iframe width="1080" height="700" src="https://www.youtube.com/embed/3hVw9_ZETow" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="1180" height="720" src="https://www.youtube.com/embed/3hVw9_ZETow" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h3>How I Built It</h3><p>I built the chatbot model following a <a href="https://pythonprogramming.net/chatbot-deep-learning-python-tensorflow/">Tutorial</a>. 
 The model is based on 170 million Reddit comments that I pre-proccessed using python and sqlite.
 Training the model took 1 week with a GTX 1080ti. After training I put the model in a tensorflow docker container and used a python 
   <a href="https://docs.zombofant.net/aioxmpp/devel/">XMPP library</a> to deploy it. When a request comes the text is inputed in the tensorflow
 library which outputs 30 suggested replies. Afterwards, a python library <a href="https://pypi.org/project/python-Levenshtein/">Levenshtein</a>
-is used to score the replies and the program responds with the output with the highest score.</p>
+is used to score the outputs and returns the output with the highest score.</p>
 <h3>Client Chatbot Interaction Diagram</h3>
 <img src="chatbot_client_interaction_diagram.jpg" alt="interaction diagram">
 <p><br><br></p>
 
 
 
-<h2>Messaging Service</h2>
-<h3>Server(Node.js, MySql, XMPP(<a href="https://www.ejabberd.im/">Ejabberd</a>), Docker)
-<br>Android App(Java, Sqlite, XMPP(<a href="https://github.com/igniterealtime/Smack">Smack</a>))</h3>
+<h2>Messaging Service
+Server(Node.js, MySql, XMPP(<a href="https://www.ejabberd.im/">Ejabberd</a>), Docker)
+<br>Android App(Java, Sqlite, XMPP(<a href="https://github.com/igniterealtime/Smack">Smack</a>))</h2>
 <h3>Introduction</h3>
 <p>A real time messaging service that enforces strict data consistancy over multiple devices.</p>
 
 <h3>Message Syncing Between Devices using <a href="https://xmpp.org/extensions/xep-0313.html">Message Archive</a>, HTTP</h3>
-<iframe width="1080" height="700" src="https://www.youtube.com/embed/B7QSXHUyd3U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="1180" height="720" src="https://www.youtube.com/embed/B7QSXHUyd3U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h4>How I Built It</h4>
 <h4>Server</h4>
 <p>Using the Docker version of an XMPP framework <a href="https://www.ejabberd.im/">Ejabberd</a> I enabled the module archive messaging and 
@@ -39,15 +39,34 @@ the application queries the server for archive messages and caches the queried m
 faster leading to better user experience and less load on the server.</p>
 
 <h4>Message Carboning</h4>
-<iframe width="1080" height="700" src="https://www.youtube.com/embed/7ycihtTGqsM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="1180" height="720" src="https://www.youtube.com/embed/7ycihtTGqsM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>Real time message syncing between devices that is logged in with the same user id. Enabled using Ejabberd for the server and the Smack li
  ary on the application.</p>
 
-<h3>Sending Images,User profile</h3>
-<iframe width="1080" height="700" src="https://www.youtube.com/embed/dOUVLUR15P0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h3>Sending Images, User profile</h3>
+<iframe width="1180" height="720" src="https://www.youtube.com/embed/dOUVLUR15P0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h4>How I built it</h4>
 <p>When sending a photo via messenger the user first uploads photos
 on the server which only the sending user and recipient has permission to view. Afterwards, the user sends a message that has a special tag that indicates the message 
 is a photo message. When the recipient receives the message the application parses it and displays a image.</p>
 <img src="image_message_diagram.jpg" alt="image_message_diagram">
+
+<h3>Push Notifcations Using Google Firebase</h3>
+<p>Due to how Android handles services the connection with the server is terminated when the application is in background.
+To handle this, I integrated push notifications to notify a user that they have a message when the user is disconnected from the server. 
+ However, there is a problem, how does the server know that the user is disconnected? The solution is Ejabberd offers a module called
+<a href="https://xmpp.org/extensions/xep-0198.html">stream mangement</a> which allows the server to detect if a user goes offline 
+and if the user is offline ejabberd requests to the server to send a push notification to the recipient.</p>
+
+<h3>Encryption</h3>
+<p>Enabled using TLS 1.2 with a self-signed certificate. The application only trusts the server that I built.</p>
+
+
+<h2>RESORCES</h2>
+<h3>Sample Java code used to connect to server</h3>
+<img src="sample_code.png" alt="chat_sample_code">
+<h3>Chatbot source code with model</h3>
+<h4><a href="https://drive.google.com/file/d/1sQ-DZE6il5QWxvMJ05OLRWnDe1JJdAVD/view?usp=sharing">Google Drive</a>, <a href="https://hub.docker.com/r/jcho7022/chatbot">Docker Hub</a></h4>
+
+
 
