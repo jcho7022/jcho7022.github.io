@@ -5,7 +5,86 @@ title: Projects
 <h1>{{ page.title }}</h1>
 <ul class="projects">
 
-  <li> <a href="/projects" title="Business Solution/Info App">Business Solution/Info App</a></li>
-  <li> <a href="/projects/chatbot" title="Chatbot & Client App">Chatbot & Client App</a></li>
+  <h2>Backend</h2
+  <h3>Api gateway</h3>
+  <h4>Functionality</h4>
+  <h4>1.Routes requests to appropriate microservice</h4>
+  <h4>2 Handles basic User Authentication</h4>
+  <p>Check jwt token expiry time and ownership for tasks that require permission. <\p>
+
+  <h4>3.Request to chat-service to generate xmpp account/h4>
+  <p>Some app requests incorporate many services and for topological simplicity services do not communicate to each other. Thus, the api-gateway needs track the state for requests to services. For example, when a user requests for sign-up the api-gateway:
+1.Request to auth-service to create user
+2.Request to user-service to create user profile
+3.Request to chat-service to generate xmpp account
+However, if any of these steps fail to achieve atomicity transactions must be reverted. The api-gateway uses the “saga state machine” to achieve such goal and maintain data consistency over distributed services. 
+    For the above example if transaction 3 fails the saga state machine reverts transaction 2 and 1.
+    <\p>
+      
+    STATE MACHINE IMAGE
+
+  <h3>Auth-service</h3>
+  <h4>Functionality</h4> 
+      <h4>1.Stores usernames and hashed passwords using the node.js [Bcrypt library](https://www.npmjs.com/package/bcrypt)</h3>
+      <h4>2. Sends out emails with verification codes to users upon sign-up and handles the process</h4>
+      USER SIGNUP IMAGE
+      <h4>3. Verifies oauth tokens and grants refresh token and access token.</h4>
+      USER SESSION IMAGE
+      
+   <h3>Chat-service</h3> Link to project 2
+      <h4>Functionality</h4>
+      <p>Has access to the MySQL database connected to ejabberd-service(XMPP) this allows custom http requests that
+      the ejabberd framework does not support. For example, unread messages and dialogs lists cannot be synced among 
+      multiple devices however adding the chat service make such feature possible. Also, a major functionally that
+      this service handles are push notifications when a user is logged out.</p>
+      
+   <h3>Ejabberd-service</h3>
+      <h4>Functionality</h4>
+      <p>A xmpp framework used to add instant messaging in the app. Enabled features are 
+        [stream connection](https://xmpp.org/extensions/xep-0198.html)(fast detection of user logout) 
+        [message carbons](https://xmpp.org/extensions/xep-0280.html) and [message archiving] which makes
+        it possible to sync messages upon devices and login/logout. TLS 1.2 encryption with a self-signed 
+        certificate.</p>
+      
+   <h2>App Data Store Services</h2>
+   <h3>ser-service<h3>
+    <p>Stores data of user profile, ownership of shops</p>
+
+   <h3>Image-service</h3>
+   <p>Stores image files and checks permissions of a request if image is private. 
+     Images names are stored using a MD5 hashes.</p>
+
+   <h3>Shop-service</h3>
+   <p>Stores data of shops and products in shops</p>
+
+   <h3>Map-service</h3>
+   <p>Stores data of shop markers on the map. The markers are stored and queried efficiently
+     using mongo’s geospatial queries.</p>
+     
+     
+   <h3>Continuous Integration</h3>
+     Scripted a shell script which spins up containers only needed to test a service. 
+     GIF OF CONTINUOUS INTEGRATION
+     
+   
+   <h3>Continuous Integration</h3>
+     Shell scripts and docker-compose files  were written to to easily deploy and clean up containers
+     no longer needed.
+     
+   <h3>Advantages felt using a Microservice design with docker</h3>
+     <h4>Easy to deploy across platforms</h4>
+     Basically if docker is running it is easy to deploy across any platform.
+     <h4>Fast iterations</h4>
+     After changing the code base we just have to rebuild one service and spin up the container.
+     <h4>Fault isolation</h4>
+     When designing and building this web application big effort was made such that microservices do not talk with each other encapsulating the services and making it easier to identify problems.
+   
+     <h3>Disadvantages felt using a Microservice design with docker</h3>
+     <h4>Maintaining data consistency among services<h4>
+      A huge effort needed to be made in-order to maintain a consistent data state over services. As mentioned above when adding a user a state machine was needed to revert transactions when failures occurred.
+
+     <h4>Docker learning curve<h4>
+     ong hours were spent just figuring out how to write dockerfiles, docker-compose files and handling with container network issues and framework configuration.
+       
 </ul>
 
