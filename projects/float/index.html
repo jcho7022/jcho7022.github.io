@@ -9,7 +9,7 @@ title: Business Solution/Promotion Application
   <h4>Functionality</h4>
   <h4>1.Routes requests to appropriate microservice</h4>
   <h4>2 Handles basic User Authentication</h4>
-  <p>Check jwt token expiry time and ownership for tasks that require permission. <\p>
+  <p>Check jwt token expiry time and ownership for tasks that require permission.</p>
 
   <h4>3.Request to chat-service to generate xmpp account/h4>
   <p>Some app requests incorporate many services and for topological simplicity services do not communicate to each other. Thus, the api-gateway needs track the state for requests to services. For example, when a user requests for sign-up the api-gateway:
@@ -18,7 +18,7 @@ title: Business Solution/Promotion Application
 3.Request to chat-service to generate xmpp account
 However, if any of these steps fail to achieve atomicity transactions must be reverted. The api-gateway uses the “saga state machine” to achieve such goal and maintain data consistency over distributed services. 
     For the above example if transaction 3 fails the saga state machine reverts transaction 2 and 1.
-    <\p>
+    </p>
       
     STATE MACHINE IMAGE
 
