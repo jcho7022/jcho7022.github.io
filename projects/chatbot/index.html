@@ -37,9 +37,13 @@ faster leading to better user experience and less load on the server.</p>
 
 <h3>Message Carboning</h3>
 <iframe width="560" height="400" src="https://www.youtube.com/embed/7ycihtTGqsM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>Real time message syncing between devices that is logged in with the same user id. Enabled on the server using Ejabberds module for the server and Smack on the application.</p>
+<p>Real time message syncing between devices that is logged in with the same user id. Enabled using Ejabberd for the server and the Smack library on the application.</p>
 
-<h3>Photo Sending User profile</h3>
+<h3>Sending Images,User profile</h3>
 <iframe width="560" height="400" src="https://www.youtube.com/embed/dOUVLUR15P0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<h3>How I built it</h3>
+<p>When sending a photo via messenger the user first uploads photos
+on the server which only the sending user and recipient has permission to view. Afterwards, the user sends a message that has a special tag that indicates the message 
+is a photo message. When the recipient receives the message the application parses it and displays a image.</p>
+<img src="image_message_diagram.jpg" alt="image_message_diagram">
 
