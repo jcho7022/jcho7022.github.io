@@ -23,12 +23,12 @@ is used to score the replies and the program responds with the output with the h
 <h4><a href="https://xmpp.org/extensions/xep-0313.html">Message Archive</a>, HTTP requests</h4>
 <iframe width="560" height="400" src="https://www.youtube.com/embed/B7QSXHUyd3U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h4>How I built it</h4>
-<h5>Server</h5>
+<h4>Server</h4>
 <p>Using the Docker version of an XMPP framework <a href="https://www.ejabberd.im/">Ejabberd</a> I enabled the module archive messaging and 
 connected it to a MySql database. Every time a message is passed in before delivering it to the recipient Ejabberd archives the message into the database.
  For archiving the dialog list I set up a trigger in the MySql database such that when a archive message is inserted the dialog list for the user is also updated.</p>
 <img src="Archive_Msg_Diagram.jpg" alt="archive message diagram">
-<h5>Client</h5>
+<h4>Client</h4>
 <p>When the client app connects to the server the application pulls the archive messages and caches it in the application's Sqlite database.
 When the user accesses the dialog activity the cached dialog list is displayed. When the user accesses the messages activity
 the application queries the server for archive messages and caches the queried messaged on the app.</p>
