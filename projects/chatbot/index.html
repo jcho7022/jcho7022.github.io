@@ -6,12 +6,15 @@ title: Chatbot
  
 <h2>Chatbot(Tensorflow, Python, XMPP, Docker)</h2>
 <iframe width="1180" height="720" src="https://www.youtube.com/embed/3hVw9_ZETow" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<h3>How I Built It</h3><p>I built the chatbot model following a <a href="https://pythonprogramming.net/chatbot-deep-learning-python-tensorflow/">Tutorial</a>. 
+<h3>How I Built It</h3>
+<p>I built the chatbot model following a <a href="https://pythonprogramming.net/chatbot-deep-learning-python-tensorflow/">Tutorial</a>. 
 The model is based on 170 million Reddit comments that I pre-proccessed using python and sqlite.
-Training the model took 1 week with a GTX 1080ti. After training I put the model in a tensorflow docker container and used a python 
-  <a href="https://docs.zombofant.net/aioxmpp/devel/">XMPP library</a> to deploy it. When a request comes the text is inputed in the tensorflow
-library which outputs 30 suggested replies. Afterwards, a python library <a href="https://pypi.org/project/python-Levenshtein/">Levenshtein</a>
-is used to score the outputs and returns the output with the highest score.</p>
+Training the model took 1 week with a GTX 1080ti. After training I put the model in a tensorflow docker container
+ and used a python <a href="https://docs.zombofant.net/aioxmpp/devel/">XMPP library</a> to deploy it. 
+When a request is made the text is inputed in the trained tensorflow model which outputs 30 suggested replies. 
+Afterwards, a python scoring program which uses <a href="https://pypi.org/project/python-Levenshtein/">Levenshtein</a>
+is used to score the outputs and returns the output with the highest score.</p> 
+
 <h3>Client Chatbot Interaction Diagram</h3>
 <img src="chatbot_client_interaction_diagram.jpg" alt="interaction diagram">
 <p><br><br></p>
@@ -22,7 +25,7 @@ is used to score the outputs and returns the output with the highest score.</p>
 Server(Node.js, MySql, XMPP(<a href="https://www.ejabberd.im/">Ejabberd</a>), Docker)
 <br>Android App(Java, Sqlite, XMPP(<a href="https://github.com/igniterealtime/Smack">Smack</a>))</h2>
 <h3>Introduction</h3>
-<p>A real time messaging service that enforces strict data consistancy over multiple devices.</p>
+<p>Real time messaging service that enforces strict data consistancy over multiple devices.</p>
 
 <h3>Message Syncing Between Devices using <a href="https://xmpp.org/extensions/xep-0313.html">Message Archive</a>, HTTP</h3>
 <iframe width="1180" height="720" src="https://www.youtube.com/embed/B7QSXHUyd3U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -63,7 +66,7 @@ and if the user is offline ejabberd requests to the server to send a push notifi
 
 
 <h2>RESORCES</h2>
-<h3>Sample Java code used to connect to server</h3>
+<h3>Sample java code and class structure used to implement messaging</h3>
 <img src="sample_code.png" alt="chat_sample_code">
 <h3>Chatbot source code with trained model</h3>
 <h4><a href="https://drive.google.com/file/d/1sQ-DZE6il5QWxvMJ05OLRWnDe1JJdAVD/view?usp=sharing">Google Drive</a>, <a href="https://hub.docker.com/r/jcho7022/chatbot">Docker Hub</a></h4>
