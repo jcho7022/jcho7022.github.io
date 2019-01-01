@@ -36,15 +36,14 @@ connected it to a MySql database. Every time a message is passed in before deliv
  For archiving the dialog list I set up a trigger in the MySql database such that when a archive message is inserted the dialog list for the user is also updated.</p>
 <img src="archive_message_diagram.jpg" alt="archive message diagram">
 <h4>Client</h4>
-<p>Coded an application such that when the client app connects to the server the application pulls the archive messages and caches it in the application's Sqlite database.
-When the user accesses the dialog activity the cached dialog list is displayed. When the user accesses the messages activity
-the application queries the server for archive messages and caches the queried messaged on the app. The caching mechanism makes the messages load
+<p>Coded an application such that when the client app connects to the server the application can pull archive messages and caches it in the application's Sqlite database.
+When the user accesses the dialog activity the cached dialog list which is pull earlier from the server using a http request is displayed. 
+When the user accesses the messages activity the application queries the server for archive messages and caches the queried messaged on the app. The caching mechanism makes the messages load
 faster leading to better user experience and less load on the server.</p>
 
 <h4>Message Carbons</h4>
 <iframe width="1180" height="720" src="https://www.youtube.com/embed/7ycihtTGqsM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>Real time message syncing between devices that is logged in with the same user id. Enabled using Ejabberd for the server and the Smack li
- ary on the application.</p>
+<p>Real time message syncing between devices that is logged in with the same user id. Enabled using Ejabberd for the server and the Smack libary on the application.</p>
 
 <h3>Sending Images, User profile</h3>
 <iframe width="1180" height="720" src="https://www.youtube.com/embed/dOUVLUR15P0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
