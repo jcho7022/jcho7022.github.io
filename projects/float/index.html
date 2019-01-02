@@ -18,18 +18,21 @@ Users can interact with shops owners using a built in instant messaging and sear
 <h4>Functionality</h4>
 <ul class="Functionality">
 				<li>Routes requests to appropriate microservice</li>
-				<li>Handles basic User Authentication such as check</li>
-        <p>Check jwt token expiry time and ownership for tasks that require permission.</p>
-				<li>Request to chat-service to generate xmpp account.</li>
-          <p>Some app requests incorporate many services and for topological simplicity services do not communicate to each other. 
+				<li>Handles basic User Authentication such as check<br>
+					Check jwt token expiry time and ownership for tasks that require permission.</li>
+				<li>Request to chat-service to generate xmpp account. <br>
+          Some app requests incorporate many services and for topological simplicity services do not communicate to each other. 
           Thus, the api-gateway needs track the state for requests to services. 
           For example, when a user requests for sign-up the api-gateway:
+	  <br>
           1.Request to auth-service to create user
+					<br>
           2.Request to user-service to create user profile
+					<br>
           3.Request to chat-service to generate xmpp account
           However, if any of these steps fail to achieve atomicity transactions must be reverted. The api-gateway uses the “saga state machine” to achieve such goal and maintain data consistency over distributed services. 
           For the above example if transaction 3 fails the saga state machine reverts transaction 2 and 1.
-          </p>
+          </li>
 				</ul>
    <img src="saga_state_machine.jpg" alt="saga_state_machine" height="800px" width="650px">
 
