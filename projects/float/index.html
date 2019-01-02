@@ -18,10 +18,9 @@ Users can interact with shops owners using a built in instant messaging and sear
 <h4>Functionality</h4>
 <ul class="Functionality">
 				<li>Most app requests are made to the api-gateway which routes requests to the appropriate microservices</li>
-				<li>Handles basic User Authentication such as check<br>
-					Check jwt token expiry time and ownership for tasks that require permission</li>
-				<li>Request to chat-service to generate xmpp account. <br>
-          Some app requests incorporate many services and for topological simplicity services do not communicate to each other 
+				<li>Handles basic User Authentication such as checking JWT for tasks that require permission<br></li>
+				<li>Maintains data consistancy across services <br>
+          Some app requests incorporate many services and to achieve modulation services do not communicate with each other 
           Thus, the api-gateway needs track the state for requests to services. 
           For example, when a user requests for sign-up the api-gateway:
 	  <br>
