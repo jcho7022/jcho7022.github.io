@@ -14,7 +14,7 @@ Users can interact with shops owners using a built in instant messaging and sear
 <p>The backend was bulit using Node.js Docker containers following a microservice design pattern.</p>
 <img src="backend_diagram.jpg" alt="server_architecture" height="600px" width="600px">
 
-<h3>Api-gateway</h3>
+<h3>*Api-gateway</h3>
 <h4>Functionality</h4>
 <ul class="Functionality">
 				<li>Most app requests are made to the api-gateway which routes requests to the appropriate microservices</li>
@@ -37,7 +37,7 @@ Users can interact with shops owners using a built in instant messaging and sear
 				</ul>
    <img src="saga_state_machine.jpg" alt="saga_state_machine" height="600px" width="600px">
 
-  <h3>Auth-service</h3>
+  <h3>*Auth-service</h3>
   <h4>Functionality</h4> 
 	<ul class="Functionality">
 		<li>1.Stores usernames and hashed passwords using the node.js <a href="https://www.npmjs.com/package/bcrypt">Bcrypt library</a></li>
@@ -49,14 +49,14 @@ Users can interact with shops owners using a built in instant messaging and sear
 		
 	</ul>
       
-   <h3>Chat-service(<a href="https://jcho7022.github.io/projects/chatbot/">Details and demo video</a>)</h3>
+   <h3>*Chat-service(<a href="https://jcho7022.github.io/projects/chatbot/">Details and demo video</a>)</h3>
       <h4>Functionality</h4>
       <p>Has access to the MySQL database connected to ejabberd-service(XMPP) which allows custom http requests that
       the ejabberd framework does not support. For example, unread messages and dialogs lists cannot be synced among 
       multiple devices however adding the chat service makes such features possible. Also,
       this service handles are push notifications when users are offline.</p>
       
-   <h3>Ejabberd-service(<a href="https://jcho7022.github.io/projects/chatbot/">Details and demo video</a>)</h3>
+   <h3>*Ejabberd-service(<a href="https://jcho7022.github.io/projects/chatbot/">Details and demo video</a>)</h3>
       <h4>Functionality</h4>
       <p>A xmpp framework used to add instant messaging in the app. Enabled features are:
 	    <ul class="chat_features">	  
@@ -66,30 +66,29 @@ Users can interact with shops owners using a built in instant messaging and sear
 	<li>TLS 1.2 encryption with a self-signed certificate(application only trusts the server)</li>	    
 	</ul>
       
-   <h3>user-service</h3>
+   <h3>*User-service</h3>
     <p>Stores data of user such as profile image, shop ownership, name</p>
 
-   <h3>Image-service</h3>
+   <h3>*Image-service</h3>
    <p>Stores image files and checks permissions of a request if image is private. Images names are stored using a MD5 hashes.</p>
 
-   <h3>Shop-service</h3>
+   <h3>*Shop-service</h3>
    <p>Stores data of shops and products in shops</p>
 
-   <h3>Map-service</h3>
+   <h3>*Map-service</h3>
    <p>Stores data of shop markers on the map. The markers are stored and queried using mongo’s geospatial queries.</p>
      
-     
-   <h3>Continuous Integration</h3>
+   <h3>*Continuous Integration</h3>
      Scripted a shell script which spins up containers only needed to test a service. 
      GIF OF CONTINUOUS INTEGRATION
      
-   <h3>General development pipeline</h3>
+   <h3>*General development pipeline</h3>
 	   
-   <h3>Deployment and system maintain scripts</h3>
+   <h3>*Deployment and system maintain scripts</h3>
      Shell scripts and docker-compose files  were written to to easily deploy and clean up containers
      no longer needed.
      
-   <h3>Advantages felt using a Microservice design with docker</h3>
+   <h3>*Advantages felt using a Microservice design with docker</h3>
      <h4>Easy to deploy across platforms</h4>
      Basically if docker is running it is easy to deploy across any platform.
      <h4>Fast iterations</h4>
