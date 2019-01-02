@@ -80,9 +80,17 @@ Users can interact with shops owners using a built in instant messaging and sear
    <p>Stores data of shop markers on the map. The markers are stored and queried using mongo’s geospatial queries.</p>
     
      
-   <h3>General development pipeline using continuous integration</h3>
-    <img src="CI_development.jpg" alt="CI_development" height="150px" width="1300px">
-
+   <h3>General development steps using continuous integration</h3>
+	<ol type="1">
+  		<li>Implement functions in repository</li>
+  		<li>Iterate unit tests and fix code until all tests pass</li>
+  		<li>Create endpoint in microservice</li>
+		<li>Iterate integration test for microservice and fix code until all tests pass</li>
+		<li>Create endpoint at api gateway</li>
+		<li>Iterate integration test for api gateway and fix code until all tests pass</li>
+		<li>Create hypermedia link</li>
+		<li>Connect application with server</li>
+	</ol>
 <br><br><br>
  <p> </p>
 
