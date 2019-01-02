@@ -78,30 +78,8 @@ Users can interact with shops owners using a built in instant messaging and sear
 
    <h3>Map-service</h3>
    <p>Stores data of shop markers on the map. The markers are stored and queried using mongo’s geospatial queries.</p>
+    
      
-   <h3>Continuous Integration</h3>
-     Scripted a shell script which spins up containers only needed to test a service. 
-     GIF OF CONTINUOUS INTEGRATION
-     
-   <h3>General development pipeline</h3>
-	   
-   <h3>Deployment and system maintain scripts</h3>
-     Shell scripts and docker-compose files  were written to to easily deploy and clean up containers
-     no longer needed.
-     
-   <h3>Advantages felt using a Microservice design with docker</h3>
-     <h4>Easy to deploy across platforms</h4>
-     Basically if docker is running it is easy to deploy across any platform.
-     <h4>Fast iterations</h4>
-     After changing the code base we just have to rebuild one service and spin up the container.
-     <h4>Fault isolation</h4>
-     When designing and building this web application big effort was made such that microservices do not talk with each other encapsulating the services and making it easier to identify problems.
-   
-     <h3>Disadvantages felt using a Microservice design with docker</h3>
-     <h4>Maintaining data consistency across services<h4>
-      A huge effort needed to be made in-order to maintain a consistent data state over services. As mentioned above when adding a user a state machine was needed to revert transactions when failures occurred.
-
-     <h4>Docker learning curve<h4>
-     Long hours were spent just figuring out how to write docker, docker-compose files and handling with container network issues and framework configuration.
-
+   <h3>General development pipeline using continuous integration</h3>
+    <img src="CI_development.jpg" alt="CI_development" height="700px" width="700px">
 
