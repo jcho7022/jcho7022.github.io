@@ -12,7 +12,7 @@ Users can interact with shops owners using a built in instant messaging and sear
 <h2>Backend</h2>
 <h3>Introduction</h3>
 <p>The backend was bulit using Node.js Docker containers following a microservice design pattern.</p>
-<img src="backend_diagram.jpg" alt="server_architecture" height="600px" width="600px">
+<img src="backend_diagram.jpg" alt="server_architecture" height="750px" width="750px">
 
 <h3>Api-gateway</h3>
 <h4>Functionality</h4>
@@ -36,17 +36,17 @@ Users can interact with shops owners using a built in instant messaging and sear
           For the above example if transaction #3 fails the saga state machine reverts transaction #2 and #1.
           </li>
 				</ul>
-   <img src="saga_state_machine.jpg" alt="saga_state_machine" height="600px" width="600px">
+   <img src="saga_state_machine.jpg" alt="saga_state_machine" height="750px" width="750px">
 
   <h3>Auth-service</h3>
   <h4>Functionality</h4> 
 	<ul class="Functionality">
 		<li>1.Stores usernames and hashed passwords using the node.js <a href="https://www.npmjs.com/package/bcrypt">Bcrypt library</a></li>
 		<li>2.Sends out emails with verification codes to users upon sign-up and handles the process 
-			<img src="sign_up.jpg" alt="sign_up" height="700px" width="700px"></li>
+			<img src="sign_up.jpg" alt="sign_up" height="750px" width="750px"></li>
 		<br><br>
 		<li>3.Verifies OAuth tokens and grants refresh token and access token <br>
-			<img src="auth_user_session.jpg" alt="auth_user_session" height="700px" width="700px"></li>
+			<img src="auth_user_session.jpg" alt="auth_user_session" height="750px" width="750px"></li>
 		
 	</ul>
       
