@@ -32,7 +32,7 @@ Users can interact with shops owners using a built in instant messaging and sear
           3.Request to chat-service to generate xmpp account
 					<br>
           However, if any of these steps fail to achieve atomicity transactions must be reverted. The api-gateway uses the “saga state machine” to achieve such goal and maintain data consistency over distributed services. 
-          For the above example if transaction 3 fails the saga state machine reverts transaction 2 and 1.
+          For the above example if transaction 3 fails the saga state machine reverts transaction #2 and #1.
           </li>
 				</ul>
    <img src="saga_state_machine.jpg" alt="saga_state_machine" height="600px" width="600px">
