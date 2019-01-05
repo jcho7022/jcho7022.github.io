@@ -36,8 +36,8 @@ connected it to a MySql database. Every time a message is passed in before deliv
  For archiving the dialog list I set up a trigger in the MySql database such that when a archive message is inserted the dialog list for the user is also updated.</p>
 <img src="archive_message_diagram.jpg" alt="archive message diagram">
 <h4>Client</h4>
-<p>Coded an application such that when the client app connects to the server the application can pull archive messages and caches it in the application's Sqlite database.
-When the user accesses the dialog activity the cached dialog list which is pull earlier from the server using a http request is displayed. 
+<p>Built an application such that when the client app connects to the server the application can pull archive messages and cache it on the application.
+When the user accesses the dialog activity the cached dialog list which is pulled earlier from the server using http is displayed. 
 When the user accesses the messages activity the application queries the server for archive messages and caches the queried messaged on the app. The caching mechanism makes the messages load
 faster leading to better user experience and less load on the server.</p>
 
