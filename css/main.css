@@ -2,6 +2,9 @@ body { margin: 70px auto; width: 70%; }
 
 .project_dir {
   margin-top: -25px;
+  font-size: 1.5em;
+  line-height: 1.4em;
+  color: #333;
 }
 
 a { text-decoration: none; color: #999; }
