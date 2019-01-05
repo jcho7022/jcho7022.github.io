@@ -25,7 +25,7 @@ and search up items using a <a href="https://jcho7022.github.io/projects/float/e
 <h4>Functionality</h4>
 <ul class="Functionality">
 				<li>Most app requests are made to the api-gateway which routes requests to the appropriate microservices</li>
-				<li>Handles basic User Authentication such as checking JWT for tasks that require permission<br></li>
+				<li>Handles basic User Authentication such as checking access token for tasks that require permission<br></li>
 				<li>Maintains data consistancy across services <br>
           Some app requests incorporate many services and to achieve modulation services do not communicate with each other. 
           As a result, the api-gateway schedules requests to multiple services however a request to a certain service may fail and to maintain
