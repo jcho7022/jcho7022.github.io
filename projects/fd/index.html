@@ -4,11 +4,14 @@ title: Failure Detector
 ---
 <h1>Node Failure Detector(<a href="https://github.com/jcho7022/failure_detector">Github</a>)</h1>
 <h2>Introduction</h2>
-<p>Me and my friend bought a cheap processor on Craigslist that had problems with it's microcode. This caused a kernal panic every once and 
-  a while leading to our server that we developed and deployed
-  <a href="https://jcho7022.github.io/projects/float">business application</a> to crash. To monitor
-  and detect crashes I built a failure detector using Golang and placed the monitor program in a AWS free tier node(Robust node) and monitored 
-  our server located in my dorm room. Whenever, our server crashes the monitor program sends a email to me which improved server up time significantly.</p>
+<p>Me and my friend bought a cheap processor on Craigslist that had problems with it's microcode. 
+  This caused a kernal panic every once and 
+  a while crashing our server that we developed and deployed our
+  <a href="https://jcho7022.github.io/projects/float">business application</a>. To monitor
+  and detect crashes I built a failure detector using Golang and placed the monitor program in a AWS
+  free tier node(Robust node) and monitored 
+  our server located in my dorm room. Whenever, our server crashes the monitor program sends a email
+  to me. This improved server up time significantly.</p>
 <h2>Explanation Diagram</h2>
 <img src="failure_detector_explanation.jpg" alt="failure_detector_explanation">
 <br><br><br><br>
