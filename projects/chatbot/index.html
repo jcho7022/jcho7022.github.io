@@ -43,13 +43,13 @@ faster leading to better user experience and less load on the server.</p>
 
 <h4>Message Carbons</h4>
 <iframe width="980" height="660" src="https://www.youtube.com/embed/7ycihtTGqsM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>Real time message syncing between devices that is logged in with the same user id. Enabled using Ejabberd for the server and the Smack libary on the application.</p>
+<p>Real time message syncing between devices logged in with the same user id. Enabled using Ejabberd for the server and the Smack libary on the application.</p>
 
 <h3>Sending Images, User profile</h3>
 <iframe  width="980" height="660" src="https://www.youtube.com/embed/dOUVLUR15P0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h4>How I built it</h4>
 <p>When sending a photo via messenger the user first uploads photos
-on the server which only the sending user and recipient has permission to view. Afterwards, the user sends a message that has a special tag that indicates the message 
+on the server which only the sender and recipient has permission to view. Afterwards, the user sends a message that has a special tag indicating that the message 
 is a photo message. When the recipient receives the message the application parses it and displays a image.</p>
 <img src="image_message_diagram.jpg" alt="image_message_diagram">
 
@@ -57,8 +57,8 @@ is a photo message. When the recipient receives the message the application pars
 <p>Due to how Android handles services the connection with the server is terminated when the application is in background.
 To handle this, I integrated push notifications to notify a user that they have a message when the user is disconnected from the server. 
  However, there is a problem, how does the server know that the user is disconnected? The solution is Ejabberd offers a module called
-<a href="https://xmpp.org/extensions/xep-0198.html">stream mangement</a> which allows the server to detect if a user goes offline 
-and if the user is offline ejabberd requests to the server to send a push notification to the recipient.</p>
+<a href="https://xmpp.org/extensions/xep-0198.html">stream mangement</a> which allows the server to detect when the user disconnects 
+. If the user is offline ejabberd requests to the chat-service to send a push notification to the recipient.</p>
 
 <h3>Encryption</h3>
 <p>Enabled using TLS 1.2 with a self-signed certificate. The application only trusts the server that I built.</p>
