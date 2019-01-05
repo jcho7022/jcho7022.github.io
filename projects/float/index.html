@@ -40,7 +40,7 @@ and search up items using a <a href="https://jcho7022.github.io/projects/float/e
 					<br><br>
           However, if any of these steps fail to achieve atomicity transactions must be reverted. The api-gateway uses a 
 					“saga state machine” to achieve such goal and maintain data consistency over distributed services. 
-          For the above example if transaction #3 fails the saga state machine reverts transaction #2 and #1.
+          For the example above if transaction #3 fails the saga state machine reverts transaction #2 and #1.
           </li>
 				</ul>
    <img src="saga_state_machine.jpg" alt="saga_state_machine" height="800px" width="800px">
