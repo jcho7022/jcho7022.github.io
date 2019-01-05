@@ -25,7 +25,7 @@ and search up items using a <a href="https://jcho7022.github.io/projects/float/e
 <h4>Functionality</h4>
 <ul class="Functionality">
 				<li>Most app requests are made to the api-gateway which routes requests to the appropriate microservices</li>
-				<li>Handles basic User Authentication such as checking access token for tasks that require permission<br></li>
+				<li>Handles basic User Authentication such as checking access tokens for tasks that require permission<br></li>
 				<li>Maintains data consistancy across services <br>
           Some app requests incorporate many services and to achieve modulation services do not communicate with each other. 
           As a result, the api-gateway schedules requests to multiple services however a request to a certain service may fail and to maintain
@@ -38,7 +38,7 @@ and search up items using a <a href="https://jcho7022.github.io/projects/float/e
 					<br>
           3.Request to chat-service to generate xmpp account
 					<br><br>
-          However, if any of these steps fail to achieve atomicity transactions must be reverted. The api-gateway uses a 
+          However, if any of these steps fail, to achieve atomicity, transactions must be reverted. The api-gateway uses a 
 					“saga state machine” to achieve such goal and maintain data consistency over distributed services. 
           For the example above if transaction #3 fails the saga state machine reverts transaction #2 and #1.
           </li>
