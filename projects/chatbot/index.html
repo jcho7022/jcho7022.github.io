@@ -29,7 +29,7 @@ Server(Node.js, MySql, XMPP(<a href="https://www.ejabberd.im/">Ejabberd</a>), Do
 
 <h3>Message Syncing Between Devices using <a href="https://xmpp.org/extensions/xep-0313.html">Message Archives</a>, HTTP</h3>
 <iframe  width="980" height="660" src="https://www.youtube.com/embed/B7QSXHUyd3U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<h4>How I Built It</h4>
+<h3>How I Built It</h3>
 <h4>Server</h4>
 <p>Using the Docker version of an XMPP framework <a href="https://www.ejabberd.im/">Ejabberd</a> I enabled the module archive messaging and 
 connected it to a MySql database. Every time a message is passed in before delivering it to the recipient Ejabberd archives the message into the database.
