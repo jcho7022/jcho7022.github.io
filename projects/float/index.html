@@ -28,14 +28,14 @@ and search up items using a <a href="https://jcho7022.github.io/projects/float/e
 <img src="backend_diagram.jpg" alt="server_architecture" height="750px" width="750px">
 
 <h3>Api-gateway</h3>
-<h4>Functionality</h4>
 <ul class="Functionality">
-				<li>Most app requests are made to the api-gateway which routes requests to the appropriate microservices</li>
-				<li>Handles basic User Authentication such as checking access tokens for tasks that require permission<br></li>
-				<li>Maintains data consistancy across services <br>
+				<li>All app requests except instant messaging requests are made to the api-gateway. The api-gateway is responsible of routing requests to the appropriate microservices</li>
+				<li>It handles basic User Authentication such as checking access tokens for tasks that require permission<br></li>
+				<li>It Maintains data consistancy across services: <br>
           Some app requests incorporate many services and to achieve modulation services do not communicate with each other. 
-          As a result, the api-gateway schedules requests to multiple services however a request to a certain service may fail and to maintain
-	  data consistancy previous requests must be reverted by the api-gateway. <br>
+          As a result, the api-gateway is in charge of scheduling requests to multiple services. 
+	  However, a request to a certain service may fail and to maintain
+	  data consistancy previous requests must be reverted by the api-gateway.<br>
           For example, when a user requests for sign-up the api-gateway:
 	  <br>
           1.Request to auth-service to create user
@@ -44,32 +44,29 @@ and search up items using a <a href="https://jcho7022.github.io/projects/float/e
 					<br>
           3.Request to chat-service to generate xmpp account
 					<br><br>
-          However, if any of these steps fail, to achieve atomicity, transactions must be reverted. The api-gateway uses a 
-					“saga state machine” to achieve such goal and maintain data consistency over distributed services. 
+          However, if any of these steps fail, to achieve transaction atomicity, previous requests made must be reverted. The api-gateway uses a 
+					“saga state machine” to achieve such task and maintain data consistency over distributed services. 
           For the example above if transaction #3 fails the saga state machine reverts transaction #2 and #1.
           </li>
 				</ul>
    <img src="saga_state_machine.jpg" alt="saga_state_machine" height="800px" width="800px">
 
   <h3>Auth-service</h3>
-	<ul class="Functionality">
 		<li>Stores usernames and hashed passwords using the node.js <a href="https://www.npmjs.com/package/bcrypt">Bcrypt library</a></li>
 		<li>Verifies passwords and grants refresh and access tokens <br>
 			<img src="auth_user_session.jpg" alt="auth_user_session" height="800px" width="800px"></li>
 	</ul>
 
    <h3>User-service</h3>
-   <p>Stores data of user such as profile, background image uri, shop ownership, name</p>
+   <p>Stores and handles requests for user data such as profile image uri, background image uri, shop ownership, name</p>
       
    <h3>Chat-service(<a href="https://jcho7022.github.io/projects/chatbot/">Demo Video And Details</a>)</h3>
-      <h4>Functionality</h4>
       <p>The chat-service has access to the MySQL database connected to ejabberd-service(XMPP) which allows custom http requests that
       the ejabberd framework does not support. For example, unread messages and dialogs lists cannot be synced among 
       multiple devices only using XMPP, however, adding the chat service makes such features possible. Also,
       this service handles push notifications for messages when users are offline.</p>
       
    <h3>Ejabberd-service(<a href="https://jcho7022.github.io/projects/chatbot/">Demo Video And Details</a>)</h3>
-      <h4>Functionality</h4>
       <p>A xmpp framework used to add instant messaging in the app. Enabled features are:
 	    <ul class="chat_features">	  
         <li><a href="https://xmpp.org/extensions/xep-0198.html">Stream Connection</a> which allows detection of user disconnection for push notifications</li>
@@ -79,13 +76,17 @@ and search up items using a <a href="https://jcho7022.github.io/projects/float/e
 	</ul>
 
    <h3>Image-service</h3>
-   <p>Stores image files and checks permissions of a request if image is private. Image names are stored using MD5 hashes.</p>
+   <p>Stores and handles requests for image files and its permissions. Image names are stored as random MD5 hash strings.</p>
 
    <h3>Shop-service</h3>
-   <p>Stores data of shops such as products, shop cover images, shop owner</p>
+   <p>Stores and handles requests for shop data such as its products, cover images, shop owner</p>
+
+   <h3>Elastic-Search-service</h3>
+   <p>This service handles app search requests made from the <a href="https://jcho7022.github.io/projects/float/elastic_search.jpg">app search bar</a>
+       search requests are proxied from the shop-service</p>
 
    <h3>Map-service</h3>
-   <p>Stores data of shop markers on the map. The markers are stored and queried using mongo’s geospatial queries.</p>
+   <p>Stores and handles requests for shop markers on the map. The markers are stored and queried using mongo’s geospatial queries.</p>
     
      
    <h3>General development process using continuous integration</h3>
