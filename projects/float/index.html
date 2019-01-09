@@ -28,7 +28,7 @@ and search up items using a <a href="https://jcho7022.github.io/projects/float/e
 <ul class="Functionality">
 				<li>All app requests except instant messaging requests are made to the api-gateway. The api-gateway is responsible of routing requests to the appropriate microservices</li>
 				<li>Handles basic user authentication such as checking access tokens for tasks that require permission<br></li>
-				<li>Maintains data consistancy across services: <br>
+				<li>Maintains <a href="https://microservices.io/patterns/data/saga.html">data consistancy</a> across services: <br>
           Some app requests incorporate many services and to achieve modulation services do not communicate with each other. 
           As a result, the api-gateway is in charge of scheduling requests to multiple services. 
 	  However, a request to a certain service may fail and to maintain
