@@ -41,8 +41,9 @@ and search up items using a <a href="https://jcho7022.github.io/projects/float/e
 					<br>
           3.Request to chat-service to generate xmpp account
 					<br><br>
+		
           However, if any of these steps fail, to achieve transaction atomicity, previous requests made must be reverted. The api-gateway uses a 
-					“saga state machine” to achieve such task and maintain data consistency over distributed services. 
+					<a href="https://microservices.io/patterns/data/saga.html">“saga state machine”</a> to achieve such task and maintain data consistency over distributed services. 
           For the example above if transaction #3 fails the saga state machine reverts transaction #2 and #1.
           </li>
 				</ul>
