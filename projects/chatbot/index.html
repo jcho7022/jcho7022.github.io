@@ -4,7 +4,7 @@ title: Chatbot
 ---
 <h1>Chatbot & Messaging Server/Applcation</h1>
  
-<h2>Chatbot(Tensorflow, Python, XMPP, Docker)</h2>
+<h2>Chatbot</h2>
 <h3>Introduction</h3>
 <p>I trained a chatbot and connected it to a XMPP server such that I can talk to it
  using the Android app I built.</p>
@@ -18,6 +18,8 @@ Training the model took 1 week with a GTX 1080ti. After training I put the model
 When a request is made the text is inputed in the trained tensorflow model which outputs 30 suggested replies. 
 A python scoring program which uses <a href="https://pypi.org/project/python-Levenshtein/">Levenshtein</a>
 is used to score the outputs and returns the output with the highest score.</p> 
+<h3>Technology Stacks Used</h3>
+<p>Tensorflow, Python, XMPP, Docker</p>
 
 <h3>Client Chatbot Interaction Diagram</h3>
 <img src="chatbot_client_interaction_diagram.jpg" alt="interaction diagram">
@@ -25,11 +27,12 @@ is used to score the outputs and returns the output with the highest score.</p>
 
 
 
-<h2>Messaging Service
-Server(Node.js, MySql, XMPP(<a href="https://www.ejabberd.im/">Ejabberd</a>), Docker)
-<br>Android App(Java, Sqlite, XMPP(<a href="https://github.com/igniterealtime/Smack">Smack</a>))</h2>
+<h2>Messaging Service</h2>
 <h3>Introduction</h3>
 <p>Instant messaging service that enforces real-time data consistency across multiple devices.</p>
+<h3>Technology Stacks Used</h3>
+<p>Back-end: Node.js, MySql, XMPP(<a href="https://www.ejabberd.im/">Ejabberd</a>), Docker)<br>
+Front-end: Android(Java), Sqlite, XMPP(<a href="https://github.com/igniterealtime/Smack">Smack</a>)</p>
 
 <h3>Message Syncing Between Devices using <a href="https://xmpp.org/extensions/xep-0313.html">Message Archives</a>, HTTP</h3>
 <iframe  width="980" height="660" src="https://www.youtube.com/embed/B7QSXHUyd3U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
