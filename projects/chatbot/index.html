@@ -10,7 +10,7 @@ title: Chatbot
 <h3>How I Built It</h3>
 <p>I built the chatbot model following a <a href="https://pythonprogramming.net/chatbot-deep-learning-python-tensorflow/">Tutorial</a>. 
 The model(chatbot) is based off of 170 million Reddit comments that I pre-proccessed using Python and Sqlite.
-Training the model took 1 week with a GTX 1080ti. After training I put the model in a tensorflow docker container
+Training the model took 1 week with a GTX 1080ti. After training I put the model in a Tensorflow Docker container
  and used a python <a href="https://docs.zombofant.net/aioxmpp/devel/">XMPP library</a> to deploy it. 
 When a request is made the text is inputed in the trained tensorflow model which outputs 30 suggested replies. 
 A python scoring program which uses <a href="https://pypi.org/project/python-Levenshtein/">Levenshtein</a>
