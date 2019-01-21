@@ -61,7 +61,7 @@ is a photo message. When the recipient receives the message the application pars
 <img src="image_message_diagram.jpg" alt="image_message_diagram">
 
 <h3>Push Notifcations Using Google Firebase</h3>
-<p>Due to how Android handles services the connection with the server is terminated when the application is in the background or terminated.
+<p>Due to how Android handles services the connection with the server is terminated when the application is in the background.
 To handle this, I integrated push notifications to notify a user that they have a message when the user is disconnected from the server. 
  However, there is a problem, how does the server know that the user is disconnected? The solution is Ejabberd offers a module called
 <a href="https://xmpp.org/extensions/xep-0198.html">stream mangement</a> which allows the server to detect when the user disconnects 
