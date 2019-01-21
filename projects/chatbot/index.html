@@ -9,10 +9,10 @@ title: Chatbot
 <iframe  width="1000" height="680" src="https://www.youtube.com/embed/3hVw9_ZETow" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h3>How I Built It</h3>
 <p>I trained a chatbot following a <a href="https://pythonprogramming.net/chatbot-deep-learning-python-tensorflow/">Tutorial</a>. 
-The model(chatbot) is based off of 170 million Reddit comments that I pre-proccessed using Python and Sqlite.
+The model(chatbot) is based off of <a href="http://files.pushshift.io/reddit/comments/">170 million Reddit comments</a> that I pre-proccessed using Python and Sqlite.
 Training the model took 1 week with a GTX 1080ti. After training I put the model in a Tensorflow Docker container
  and used a python <a href="https://docs.zombofant.net/aioxmpp/devel/">XMPP library</a> to deploy it. 
-When a request is made the text is inputed in the trained tensorflow model which outputs 30 suggested replies. 
+When a request is made the text is inputed in the chatbot model which outputs 30 suggested replies. 
 A python scoring program which uses <a href="https://pypi.org/project/python-Levenshtein/">Levenshtein</a>
 is used to score the outputs and returns the output with the highest score.</p> 
 <h3>Client Chatbot Interaction Diagram</h3>
