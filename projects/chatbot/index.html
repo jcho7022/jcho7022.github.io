@@ -34,15 +34,19 @@ Front-end: Android(Java), Sqlite, XMPP(<a href="https://github.com/igniterealtim
 <iframe  width="1000" height="680" src="https://www.youtube.com/embed/B7QSXHUyd3U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h3>How I Built It</h3>
 <h4>Server</h4>
-<p>Using the Docker version of an XMPP framework <a href="https://www.ejabberd.im/">Ejabberd</a> I enabled the module archive messaging and 
+<p>Using the Docker version of a XMPP framework <a href="https://www.ejabberd.im/">Ejabberd</a> I enabled the module archive messaging and 
 connected it to a MySql database. Every time a message is passed in before delivering it to the recipient Ejabberd archives the message into the database.
- For archiving the dialog list I set up a trigger in the MySql database such that when a archive message is inserted the dialog list for the user is also updated.</p>
+Also, the database stores the dialog list of each user which is a list of the most recent message of each conversation. This list
+is updated whenever a archive message is inserted using a trigger. 
+Upon connecting to the server the user pulls their dialog list and uses it to sync their messages to the server.</p>
 <img src="archive_message_diagram.jpg" alt="archive message diagram">
 <h4>Client</h4>
-<p>Built an application such that when the client app connects to the server the application can pull archive messages and cache it on the application.
-When the user accesses the dialog activity the cached dialog list which is pulled earlier from the server using http is displayed. 
-When the user accesses the messages activity the application queries the server for archive messages and caches the queried messaged on the app. The caching mechanism makes the messages load
-faster leading to better user experience and less load on the server.</p>
+<p>I built an application such that when a client connects to the server the application pulls archive messages and cache it on their device.
+When a user accesses the dialog activity the cached dialog list which is pulled earlier, when the user started the application, is displayed. 
+When the user accesses the message activity the application queries the server for archive messages and caches the retrieved messaged on their device.
+If messages of a conversation is already stored on the device the stored messages are displayed without requesting to the server.
+As a result, the load time decreases resulting in better user experience and less load on the server. When building this system I assumed that
+messages are static content.</p>
 
 <h4>Message Carbons</h4>
 <iframe width="1000" height="680" src="https://www.youtube.com/embed/7ycihtTGqsM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -57,21 +61,21 @@ is a photo message. When the recipient receives the message the application pars
 <img src="image_message_diagram.jpg" alt="image_message_diagram">
 
 <h3>Push Notifcations Using Google Firebase</h3>
-<p>Due to how Android handles services the connection with the server is terminated when the application is in background.
+<p>Due to how Android handles services the connection with the server is terminated when the application is in the background or terminated.
 To handle this, I integrated push notifications to notify a user that they have a message when the user is disconnected from the server. 
  However, there is a problem, how does the server know that the user is disconnected? The solution is Ejabberd offers a module called
 <a href="https://xmpp.org/extensions/xep-0198.html">stream mangement</a> which allows the server to detect when the user disconnects 
-. If the user is offline ejabberd requests to the chat-service to send a push notification to the recipient.</p>
+. If the user is offline the server requests to firebase to send a push notification to the recipient.</p>
 
 <h3>Encryption</h3>
-<p>Enabled using TLS 1.2 with a self-signed certificate. The application only trusts the server that I built.</p>
+<p>Enabled using TLS 1.2 with a self-signed certificate. The application only trusts my server.</p>
 
 
 <h2>RESORCES</h2>
 <h3>Sample java code and project structure used to implement messaging</h3>
 <img src="sample_code.png" alt="chat_sample_code"  width="1280" height="900">
 <h3>Chatbot source code with trained model</h3>
-<h4><a href="https://drive.google.com/file/d/1sQ-DZE6il5QWxvMJ05OLRWnDe1JJdAVD/view?usp=sharing">Google Drive</a>, <a href="https://hub.docker.com/r/jcho7022/chatbot">Docker Hub</a></h4>
+<h4><a href="https://drive.google.com/file/d/1sQ-DZE6il5QWxvMJ05OLRWnDe1JJdAVD/view?usp=sharing">Google Drive(Too large to upload to Git)</a>, <a href="https://hub.docker.com/r/jcho7022/chatbot">Docker Hub</a></h4>
 
 
 
