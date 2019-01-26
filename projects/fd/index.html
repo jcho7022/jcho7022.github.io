@@ -7,14 +7,7 @@ title: Failure Detector
 <p>Go, Docker</p>
 
 <h2>Introduction</h2>
-<p>Me and my friend bought a cheap processor on Craigslist that had problems with its microcode. 
-  This caused a kernal panic every once and 
-  a while crashing our server that we developed and deployed our
-  <a href="https://jcho7022.github.io/projects/float">business application</a>. To monitor
-  and detect crashes I built a failure detector using Golang and placed the monitor program in a AWS
-  free tier node(Robust node) and monitored 
-  our server located in my dorm room. Whenever, our server crashes the monitor program sends a email
-  to me. This improved server up time significantly.</p>
+<p>A failure detector capable of monitoring a remote node and notify a user when the node crashes.</p>
 <h2>Explanation Diagram</h2>
 <img src="failure_detector_explanation.jpg" alt="failure_detector_explanation">
 <br><br><br><br>
