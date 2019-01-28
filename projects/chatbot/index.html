@@ -34,11 +34,11 @@ Front-end: Android(Java), Sqlite, XMPP(<a href="https://github.com/igniterealtim
 <iframe  width="1000" height="680" src="https://www.youtube.com/embed/B7QSXHUyd3U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h3>How I Built It</h3>
 <h4>Server</h4>
-<p>Using the Docker version of a XMPP framework <a href="https://www.ejabberd.im/">Ejabberd</a> I enabled the module archive messaging and 
-connected it to a MySql database. Every time a message is passed in before delivering it to the recipient Ejabberd archives the message into the database.
-Also, the database stores the dialog list of each user which is a list of the most recent message of each conversation. This list
-is updated whenever a archive message is inserted using a trigger. 
-Upon connecting to the server the user pulls their dialog list and uses it to sync their messages to the server.</p>
+<p>Using the Docker version of a XMPP framework <a href="https://www.ejabberd.im/">Ejabberd</a> I enabled the module 
+ <a href="https://xmpp.org/extensions/xep-0313.html">"Message Archives"</a> and 
+connected it to a MySql database. Every time a message is passed in, before delivering it to the recipient, Ejabberd archives the message into the database.
+Whenever such event occurs a tigger I enabled in the database updates the dialog list for the sender and recipient. 
+Upon connecting to the server the client application pulls the users dialog list and uses it to sync messages with the server.</p>
 <img src="archive_message_diagram.jpg" alt="archive message diagram">
 <h4>Client</h4>
 <p>I built an application such that when a client connects to the server the application pulls archive messages and cache it on their device.
@@ -48,7 +48,7 @@ If messages of a conversation is already stored on the device the stored message
 As a result, the load time decreases resulting in better user experience and less load on the server. When building this system I assumed that
 messages are static content.</p>
 
-<h4>Message Carbons</h4>
+<h3>Message Carbons</h3>
 <iframe width="1000" height="680" src="https://www.youtube.com/embed/7ycihtTGqsM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>Real time message syncing between devices logged in with the same user id. Enabled using Ejabberd for the server and the Smack libary on the application.</p>
 
