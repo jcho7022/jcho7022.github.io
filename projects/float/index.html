@@ -55,9 +55,6 @@ Users can interact with other users using <a href="https://jcho7022.github.io/pr
 		<li>Verifies passwords and grants refresh and access token <br>
 			<img src="auth_user_session.jpg" alt="auth_user_session" height="800px" width="800px"></li>
 	</ul>
-
-   <h3>User-service</h3>
-   <p>Stores and handles requests for user data such as profile image uri, background image uri, shop ownership, name.</p>
       
    <h3>Chat-service(<a href="https://jcho7022.github.io/projects/chatbot/">Demo Video And Details</a>)</h3>
       <p>The chat-service has access to the MySQL database connected to ejabberd-service(XMPP) which allows custom http requests that
@@ -73,6 +70,9 @@ Users can interact with other users using <a href="https://jcho7022.github.io/pr
 	<li><a href="https://xmpp.org/extensions/xep-0136.html">Message Archiving</a>, <a href="https://xmpp.org/extensions/xep-0280.html">Message Carbons</a> which allows real-time message data syncing across multiple devices</li>
 	<li>TLS 1.2 encryption with a self-signed certificate(application only trusts the server)</li>	    
 	</ul>
+
+   <h3>User-service</h3>
+   <p>Stores and handles requests for user data such as profile image uri, background image uri, shop ownership, name.</p>
 
    <h3>Image-service</h3>
    <p>Stores and handles requests for image files and its permissions. Image names are stored as random MD5 hash strings.</p>
