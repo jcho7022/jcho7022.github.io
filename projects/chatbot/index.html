@@ -37,7 +37,7 @@ Front-end: Android(Java), Sqlite, XMPP(<a href="https://github.com/igniterealtim
  <a href="https://xmpp.org/extensions/xep-0313.html">"Message Archives"</a> and 
 connected it to a MySql database. Every time a message is passed in, before delivering it to the recipient, Ejabberd archives the message into the database.
 Whenever such event occurs a trigger enabled in the database updates the dialog list for the sender and recipient. 
-Upon connecting to the server the client application pulls the users dialog list and uses it to sync messages with the server.</p>
+Upon connecting to the server the client application pulls the user's dialog list and uses it to sync messages with the server.</p>
 <img src="archive_message_diagram.jpg" alt="archive message diagram">
 <h4>Client</h4>
 <p>I built an application such that when a client connects to the server the application pulls archive messages and cache it on their device.
@@ -65,10 +65,10 @@ is a photo message. When the recipient receives the message the application pars
 To handle this, I integrated push notifications to notify a user that they have a message when the user is disconnected from the server. 
  However, there is a problem, how does the server know that the user is disconnected? The solution is Ejabberd offers a module called
 <a href="https://xmpp.org/extensions/xep-0198.html">stream mangement</a> which allows the server to detect when the user disconnects 
-. If the user is offline the server requests to firebase to send a push notification to the recipient.</p>
+. If the recipient is offline the server makes a requests to firebase and sends a push notification.</p>
 
 <h3>Encryption</h3>
-<p>Enabled using TLS 1.2 with a self-signed certificate. The application only trusts my server.</p>
+<p>Enabled using TLS 1.2 with a self-signed certificate. The application only trusts the server.</p>
 
 <h3>Source code with chatbot model</h3>
 <h4><a href="https://drive.google.com/file/d/1sQ-DZE6il5QWxvMJ05OLRWnDe1JJdAVD/view?usp=sharing">Google Drive</a>, <a href="https://hub.docker.com/r/jcho7022/chatbot">Docker Hub</a></h4>
