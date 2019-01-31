@@ -35,11 +35,11 @@ Users can interact with other users using <a href="https://jcho7022.github.io/pr
 	  data consistency previous requests must be reverted by the api-gateway.<br>
           For example, when a user requests for sign-up the api-gateway:
 	  <br>
-          1.Request to auth-service to create user
+          1.Requests to auth-service to create user
 					<br>
-          2.Request to user-service to create user profile
+          2.Requests to user-service to create user profile
 					<br>
-          3.Request to chat-service to generate a xmpp account
+          3.Requests to chat-service to generate a xmpp account
 					<br><br>
 		
           However, if any of these steps fail, to achieve transaction atomicity, previous requests made must be reverted. The api-gateway uses a 
