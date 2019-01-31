@@ -36,7 +36,7 @@ Front-end: Android(Java), Sqlite, XMPP(<a href="https://github.com/igniterealtim
 <p>Using the Docker version of a XMPP framework <a href="https://www.ejabberd.im/">Ejabberd</a> I enabled the module 
  <a href="https://xmpp.org/extensions/xep-0313.html">"Message Archives"</a> and 
 connected it to a MySql database. Every time a message is passed in, before delivering it to the recipient, Ejabberd archives the message into the database.
-Whenever such event occurs a trigger I enabled in the database updates the dialog list for the sender and recipient. 
+Whenever such event occurs a trigger enabled in the database updates the dialog list for the sender and recipient. 
 Upon connecting to the server the client application pulls the users dialog list and uses it to sync messages with the server.</p>
 <img src="archive_message_diagram.jpg" alt="archive message diagram">
 <h4>Client</h4>
