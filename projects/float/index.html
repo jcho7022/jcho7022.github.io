@@ -60,14 +60,15 @@ Users can interact with other users using <a href="https://jcho7022.github.io/pr
       <p>The chat-service has access to the MySQL database connected to ejabberd-service(XMPP) which allows custom http requests that
       the ejabberd framework does not support. For example, unread messages and dialogs lists cannot be synced among 
       multiple devices only using XMPP, however, by adding such sevice makes these features possible. Also,
-      this service handles push notification message deilvery to users when they're offline.</p>
+      this service handles push notification message deilvery to users when they're disconnected to the XMPP server.</p>
       
    <h3>Ejabberd-service(<a href="https://jcho7022.github.io/projects/chatbot/">Demo Video And Details</a>)</h3>
-      <p>A xmpp framework used to add instant messaging in the app. Enabled features are:
+      <p>A XMPP framework used to add an instant messaging functionality. Enabled features are:
 	    <ul class="chat_features">	  
-        <li><a href="https://xmpp.org/extensions/xep-0198.html">Stream Connection</a> which allows real-time detection of user disconnection for push notifications</li>
-        <li><a href="https://xmpp.org/extensions/xep-0357.html">Push Notifications</a> which allows messages to be sent to user when disconnected</li>
-	<li><a href="https://xmpp.org/extensions/xep-0136.html">Message Archiving</a>, <a href="https://xmpp.org/extensions/xep-0280.html">Message Carbons</a> which allows real-time message data syncing across multiple devices</li>
+        <li><a href="https://xmpp.org/extensions/xep-0198.html">Stream Connection</a> which enables real-time detection of user disconnection for push notifications</li>
+        <li><a href="https://xmpp.org/extensions/xep-0357.html">Push Notifications</a> which enables messages to be sent to user when disconnected</li>
+	<li><a href="https://xmpp.org/extensions/xep-0136.html">Message Archiving</a>, <a href="https://xmpp.org/extensions/xep-0280.html">Message Carbons</a>
+		which enables real-time message data syncing across multiple devices</li>
 	<li>TLS 1.2 encryption with a self-signed certificate(application only trusts the server)</li>	    
 	</ul>
 
@@ -85,7 +86,7 @@ Users can interact with other users using <a href="https://jcho7022.github.io/pr
        search requests are proxied from the shop-service.</p>
 
    <h3>Map-service</h3>
-   <p>Stores and handles requests for shop locations on the map. Locations are stored and queried using mongo’s geospatial queries.</p>
+   <p>Stores and handles requests for shop locations on the map. Locations are stored and queried using mongoDB’s geospatial queries.</p>
     
      
    <h3>General development process using integration testing</h3>
@@ -94,7 +95,7 @@ Users can interact with other users using <a href="https://jcho7022.github.io/pr
   		<li>Implement functions in repository</li>
   		<li>Iterate unit tests and fix code until all tests pass</li>
   		<li>Create endpoint in microservice</li>
-		<li>Iterate integration test for microservice and fix code until all tests pass</li>
+		<li>Iterate integration test for service and fix code until all tests pass</li>
 		<li>Create endpoint at api gateway</li>
 		<li>Iterate integration test for api gateway and fix code until all tests pass</li>
 		<li>Create hypermedia link</li>
@@ -102,7 +103,7 @@ Users can interact with other users using <a href="https://jcho7022.github.io/pr
 	</ol>
 </font>
 
-<h3>Integration Test Demo(<a href="https://gist.github.com/jcho7022/d425f792564fa13d1927ef3c47ebb785">Tests</a>)</h3>
+<h3>Integration Test Demo(<a href="https://gist.github.com/jcho7022/d425f792564fa13d1927ef3c47ebb785">Sample Tests</a>)</h3>
 <iframe width="980" height="660" src="https://www.youtube.com/embed/Dn0uajOOrVQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <br><br><br>
