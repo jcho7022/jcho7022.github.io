@@ -12,8 +12,8 @@ title: Messaging Server/Client
 <h3>How I Built It</h3>
 <p>I trained the chatbot following a <a href="https://pythonprogramming.net/chatbot-deep-learning-python-tensorflow/">Tutorial</a>. 
 The model(chatbot) is based off of <a href="http://files.pushshift.io/reddit/comments/">170 million Reddit comments</a> that I pre-proccessed using Python and Sqlite.
-Training the model took 1 week with a GTX 1080ti. After training it I put the model in a Tensorflow Docker container
- and used a python <a href="https://docs.zombofant.net/aioxmpp/devel/">XMPP library</a> to connected it to the
+Training the model took 1 week with a GTX 1080ti. After training it, I put the model in a Tensorflow Docker container
+ and used a python <a href="https://docs.zombofant.net/aioxmpp/devel/">XMPP library</a> to connect it to the
  messaging service I built.</p> 
 <h3>How It Works</h3>
 <p>When a messaged is passed in the text is inputed into the chatbot which outputs 30 suggested replies. 
