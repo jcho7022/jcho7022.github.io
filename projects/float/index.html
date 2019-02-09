@@ -12,7 +12,7 @@ title: "Float: Map Oriented Marketplace Application"
 	Users can interact with other users using <a href="/projects/float/messaging.jpg">in-app instant messaging</a>, 
 	search up items using a <a href="/projects/float/elastic_search.jpg">search bar that supports elastic search</a>
 	or browse nearby products using <a href="/projects/float/infinite_product.jpg">"infinite" product scrolling</a>.
-	This project was built from scratch referencing various sources and documentations on the internet.
+	This project was built from scratch referencing various sources and documentations.
 	More details available at <a href="https://play.google.com/store/apps/details?id=com.floatapplication">Google Play</a>. </p>
 
 <h2>Demo/<a href="https://jcho7022.github.io/projects/chatbot">Detailed Messaging Demo</a></h2>
@@ -28,7 +28,7 @@ title: "Float: Map Oriented Marketplace Application"
 	all within a single application.</p>
 
 <h3>Development Process</h3>
-<p>However, the start was difficult since there were no guidance or direction like the assignments from the CS courses.
+<p>However, the start was difficult since there were no guidance or direction like assignments from CS courses I took.
 	At first we didn't know anything such as how to build a server, what kind of frameworks to use, how to set up
 	the development environment etc. We started with small sub projects and built our way up to bigger projects solving the challenges 
 	one at a time. There were often frustrating times where it took hours to days to solve problems 
@@ -40,7 +40,7 @@ title: "Float: Map Oriented Marketplace Application"
 <p>Overall, I had fun working on this project and learned far more than what I would have learned in class.
 	The most fulfilling moments were when putting working features together and demoing and explaining
 	each other's concepts and implementation of the features. From this project I discovered my particular 
-	passion in back-end development and I'm planning to pursue a career in back-end software development. </p>
+	passion in back-end development, and I'm planning to pursue a career in back-end software development. </p>
 
 <h3>Monetization/Product Design</h3>
 <p>We planned to monetize this project and build a start-up by sending out local ADs or offering special
@@ -50,14 +50,14 @@ title: "Float: Map Oriented Marketplace Application"
 
 <h3>My Contributions</h3>
 <ul class="contributions">	  
-        <li>Designing, implementing, and testing RESTful APIs</li>
-        <li>Architecting application components from front-end to back-end</li>
+        <li>Designing, implementing, and testing RESTful APIs(api-gateway, chat, auth, user, image, map services)</li>
+        <li>Architecting application components from front-end to back-end(login, messaging, user profile, shop components)</li>
 	<li>Setting up and integrating frameworks such as Docker, MySQL, Firebase, XMPP, OAuth</li>
 	<li>Writing Docker, Docker-compose files, as well as shell scripts to automate deployment and testing</li>
 	<li>Writing integration and unit tests</li>
 	<li>Setting up user session with JWTs and user authentication</li>
 	<li>Setting up HTTPS, TLS(XMPP) for client and server, and configuring NAT table(server was located in my dorm room)</li>
-	<li>Building UI, app illustrations</li>
+	<li>Building UI and app illustrations</li>
 	<li>Refactoring code and code reviewing</li>
 	<li>Version control</li>
 	</ul>
@@ -72,24 +72,24 @@ title: "Float: Map Oriented Marketplace Application"
 
 <h3>Api-gateway</h3>
 <ul class="Functionality">
-				<li>All app requests except instant messaging requests are made to the api-gateway which is responsible of routing requests to the appropriate services</li>
-				<li>Handles basic user authentication such as checking access tokens for tasks that require permission<br></li>
-				<li>Maintains <a href="https://microservices.io/patterns/data/saga.html">data consistency</a> across services: <br>
-          Some requests incorporate many services and to achieve modulation services do not communicate with each other. 
+	<li>All app requests except instant messaging requests are made to the api-gateway which is responsible of routing requests to the appropriate services</li>
+	<li>Handles basic user authentication such as checking access tokens for tasks that require permission<br></li>
+	<li>Handles distributed transaction <br>
+          Some application requests incorporate many services and to achieve modulation services do not communicate with each other. 
           As a result, the api-gateway is in charge of scheduling requests to multiple services. 
-	  However, a request to a certain service may fail and to maintain
-	  data consistency previous requests must be reverted by the api-gateway.<br>
+	  However, if a request to a certain service fails to maintain
+	  data consistency previous requests must be reverted.<br>
           For example, when a user requests for sign-up the api-gateway:
 	  <br>
           1.Requests to auth-service to create user
 					<br>
           2.Requests to user-service to create user profile
 					<br>
-          3.Requests to chat-service to generate a xmpp account
+          3.Requests to chat-service to generate a xmpp profile
 					<br><br>
 		
-          However, if any of these steps fail, to achieve transaction atomicity, previous requests made must be reverted. The api-gateway uses a 
-					<a href="https://microservices.io/patterns/data/saga.html">“saga state machine”</a> to achieve such task and maintain data consistency over distributed services. 
+          However, if any of these steps fail to achieve transaction atomicity, previous requests made must be reverted. The api-gateway uses a 
+	  <a href="https://microservices.io/patterns/data/saga.html">“saga state machine”</a> to handle such task and maintain data consistency over distributed services. 
           For the example above if transaction #3 fails the saga state machine reverts transaction #2 and #1.
           </li>
 				</ul>
@@ -98,7 +98,7 @@ title: "Float: Map Oriented Marketplace Application"
   <h3>Auth-service</h3>
 	<ul class="Functionality">
 		<li>Stores usernames and hashed passwords using the node.js <a href="https://www.npmjs.com/package/bcrypt">Bcrypt library</a></li>
-		<li>Verifies passwords and grants refresh and access token <br>
+		<li>Verifies passwords and grants a refresh and access token(JWT) <br>
 			<img src="auth_user_session.jpg" alt="auth_user_session" height="800px" width="800px"></li>
 	</ul>
       
