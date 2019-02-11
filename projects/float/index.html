@@ -135,10 +135,12 @@ title: "Float: Map Oriented Marketplace Application"
    <p>Stores and handles requests for shop locations on the map. Locations are stored and queried using mongoDB’s geospatial queries.</p>
     
      
-   <h3>General development process using integration testing</h3>
+   <h3>General RESTful API Development Process</h3>
 <font size="5.8" font-family: 'Helvetica', 'Arial', 'Sans-Serif'>
 	<ol type="1">
-  		<li>Implement functions in repository</li>
+		<li>Design feature and acknowledge endpoint requirements</li>
+		<li>Design pre/post conditions and build test cases</li>
+  		<li>Implement required functions in repository</li>
   		<li>Iterate unit tests and fix code until all tests pass</li>
   		<li>Create endpoint in microservice</li>
 		<li>Iterate integration test for service and fix code until all tests pass</li>
