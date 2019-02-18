@@ -13,7 +13,8 @@ title: Messaging Server/Client
 <p>I trained the chatbot following a <a href="https://pythonprogramming.net/chatbot-deep-learning-python-tensorflow/">Tutorial</a>. 
 The model(chatbot) is based off of <a href="http://files.pushshift.io/reddit/comments/">170 million Reddit comments</a> that I pre-proccessed using Python and Sqlite.
 Training the model took a week with a GTX 1080ti and after training it, I put the model in a Tensorflow Docker container
- and used a Python <a href="https://docs.zombofant.net/aioxmpp/devel/">XMPP library</a> to connect it with the messaing service I built</p> 
+ and used a Python <a href="https://docs.zombofant.net/aioxmpp/devel/">XMPP library</a> to interact with it using the 
+messaging service I built</p> 
 <h3>How It Works</h3>
 <p>When a message is passed in, the text is inputed into the chatbot which outputs 30 suggested replies. 
 A Python script built on top of <a href="https://pypi.org/project/python-Levenshtein/">Levenshtein</a>
@@ -23,8 +24,7 @@ is used to score the outputs and returns the output with the highest score.</p>
 
 <h2>Messaging Service</h2>
 <h3>Introduction</h3>
-<p>I built an instant messaging service that enforces real-time data consistency across multiple devices. 
- This project was built from scratch referencing various sources and documentation on the internet. 
+<p>I built an instant messaging service that enforces real-time data consistency across multiple devices.</p>
  
 <h3>Technology Stacks Used</h3>
 <p>Back-end: Node.js, MySql, XMPP(<a href="https://www.ejabberd.im/">Ejabberd</a>), Docker<br>
@@ -37,7 +37,7 @@ Front-end: Android(Java), Sqlite, XMPP(<a href="https://github.com/igniterealtim
 <p>Using the Docker version of a XMPP framework <a href="https://www.ejabberd.im/">Ejabberd</a> I enabled the module 
  <a href="https://xmpp.org/extensions/xep-0313.html">"Message Archives"</a> and 
 connected it to a MySql database. Every time a message is passed in, before delivering it to the recipient, Ejabberd archives the message into the database.
-Whenever such event occurs a trigger enabled in the database updates the dialog list for the sender and recipient. 
+Also, whenever a message is archived a trigger I enabled in the database updates the dialog list for the sender and recipient. 
 Upon connecting to the server the client application pulls the user's dialog list and uses it to sync messages with the server.</p>
 <img src="archive_message_diagram.jpg" alt="archive message diagram">
 <h4>Client</h4>
@@ -65,7 +65,7 @@ on the server which only the sender and recipient has permission to view.
  However, there is a problem, how does the server exactly know when a user disconnected? 
  The solution is Ejabberd offers a module called <a href="https://xmpp.org/extensions/xep-0198.html">stream mangement</a> 
  which allows the server to detect exactly when a user disconnects. 
- If the user to recieve a message is offline the server makes a
+ If the recipient is offline the server makes a
  requests to <a href="https://firebase.google.com/products/cloud-messaging/">Google Firebase</a> and sends a push notification.</p>
 
 
