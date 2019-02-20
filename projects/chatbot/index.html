@@ -10,14 +10,13 @@ title: Messaging Server/Client
 <h3>Technology Stacks Used</h3>
 <p>Tensorflow, Python, XMPP, Docker</p>
 <h3>Introduction</h3>
-<p>I trained a chatbot following a <a href="https://pythonprogramming.net/chatbot-deep-learning-python-tensorflow/">Tutorial</a>. 
-The model(chatbot) is based off of <a href="http://files.pushshift.io/reddit/comments/">170 million Reddit comments</a> that I pre-proccessed using Python and Sqlite.
-Training the model took a week with a GTX 1080ti and after training it, I put the model in a Tensorflow Docker container
+<p>The model (chatbot) is based on <a href="http://files.pushshift.io/reddit/comments/">170 million Reddit comments</a> that I pre-proccessed using Python and Sqlite.
+Training the model took a week with a GTX 1080ti. After training it, I put the model in a Tensorflow Docker container
  and used a Python <a href="https://docs.zombofant.net/aioxmpp/devel/">XMPP library</a> 
- to connect it with the messaging service I built.</p> 
+ to connect it with the messaging service I had built.</p> 
 <h3>How It Works</h3>
-<p>When a message is passed in, the text is inputed into the chatbot which outputs 30 suggested replies. 
-A Python script built on top of <a href="https://pypi.org/project/python-Levenshtein/">Levenshtein</a>
+<p>When a message is passed in,the text is inputed into the chatbot model, which outputs 30 suggested replies.
+ A Python script built on top of <a href="https://pypi.org/project/python-Levenshtein/">Levenshtein</a>
 is used to score the outputs and returns the output with the highest score.</p> 
 <img src="chatbot_client_interaction_diagram.jpg" alt="interaction diagram">
 <p><br><br></p>
@@ -41,32 +40,36 @@ Also, whenever a message is archived a trigger I enabled in the database updates
 Upon connecting to the server the client application pulls the user's dialog list and uses it to sync messages with the server.</p>
 <img src="archive_message_diagram.jpg" alt="archive message diagram">
 <h4>Client</h4>
-<p>I built an application such that when a client connects to the server the application pulls archive messages and cache it on their device.
-When a user accesses the dialog activity the cached dialog list which is pulled earlier is displayed. 
-When the user accesses the message activity the application queries the server for archive messages and caches the retrieved messaged on their device.
-If messages of a conversation is already stored on the device the stored messages are displayed without requesting to the server.
-As a result, the load time decreases and less load is put onto the server.</p>
+<p>I built an application wherein when a client connects to the server, the application pulls archived messages and caches
+ them on their device. When a user accesses the dialog activity, the cached dialog list (which was pulled earlier), 
+ is displayed. When the user accesses the message activity, the application queries the server for archived messages
+ and caches the retrieved messages on their device. If messages in a conversation are already stored on the device, 
+ the stored messages are displayed without requesting to the server. As a result, the load time decreases, and less 
+ load is put onto the server.</p>
 
 
 <h3>Message Carbons</h3>
 <iframe width="1000" height="680" src="https://www.youtube.com/embed/7ycihtTGqsM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>Real time message syncing between devices logged in with the same user id. Enabled using Ejabberd's  <a href="https://xmpp.org/extensions/xep-0280.html">"Message Carbons"</a> module server and the Smack libary on the application.</p>
+<p>Message carbons allow real time message syncing between devices logged in with the same user id.
+ This is enabled using Ejabberd's  <a href="https://xmpp.org/extensions/xep-0280.html">"Message Carbons"</a> module server and the Smack library on the application.</p>
 
 <h3>Sending Images, User profile</h3>
 <iframe  width="1000" height="680" src="https://www.youtube.com/embed/dOUVLUR15P0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>When sending a photo via messenger the user first uploads photos
-on the server which only the sender and recipient has permission to view. 
- Afterwards, the user sends a message that has a special tag containing the uri of the uploaded image. 
- When the recipient receives the message, the application parses the tag, and retrieves the associated image from the server.</p>
+<p>When sending a photo via the messenger, the user first uploads photos onto the server, 
+ which only the sender and recipient have permission to view. Afterwards, the user sends a message
+ that has a special tag containing the uri of the uploaded image. When the recipient receives the message,
+ the application parses the tag, and retrieves the associated image from the server.
+</p>
 <img src="image_message_diagram.jpg" alt="image_message_diagram">
 
 <h3>Push Notifcations Using Google Firebase</h3>
-<p>I integrated push notifications which allows users to receive messages when they are disconnected to the server. 
- However, there is a problem, how does the server exactly know when a user disconnected? 
- The solution is Ejabberd offers a module called <a href="https://xmpp.org/extensions/xep-0198.html">stream mangement</a> 
- which allows the server to detect exactly when a user disconnects. 
- If the recipient is offline the server makes a
- requests to <a href="https://firebase.google.com/products/cloud-messaging/">Google Firebase</a> and sends a push notification.</p>
+<p>I integrated push notifications that allow users to receive messages when they are disconnected
+ from the server. However, if there is a problem, how does the server know exactly when a user
+ is disconnected? The solution is that Ejabberd offers a module called 
+ <a href="https://xmpp.org/extensions/xep-0198.html">stream mangement</a>,
+ wwhich allows the server to detect exactly when a user disconnects. 
+ If the recipient is offline, the server makes a requests 
+ to the <a href="https://firebase.google.com/products/cloud-messaging/">Google Firebase</a> and sends a push notification.</p>
 
 
 <h3>Encryption</h3>
