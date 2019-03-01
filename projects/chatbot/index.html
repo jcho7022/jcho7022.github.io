@@ -40,7 +40,7 @@ Also, whenever a message is archived a trigger I enabled in the database updates
 Upon connecting to the server the client application pulls the user's dialog list and uses it to sync messages with the server.</p>
 <img src="archive_message_diagram.jpg" alt="archive message diagram">
 <h4>Client</h4>
-<p>I built an application wherein when a client connects to the server, the application pulls archived messages and caches
+<p>I built an application where when a client connects to the server, the application pulls archived messages and caches
  them on their device. When a user accesses the dialog activity, the cached dialog list (which was pulled earlier), 
  is displayed. When the user accesses the message activity, the application queries the server for archived messages
  and caches the retrieved messages on their device. If messages in a conversation are already stored on the device, 
@@ -51,7 +51,7 @@ Upon connecting to the server the client application pulls the user's dialog lis
 <h3>Message Carbons</h3>
 <iframe width="1000" height="680" src="https://www.youtube.com/embed/7ycihtTGqsM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>Message carbons allow real time message syncing between devices logged in with the same user id.
- This is enabled using Ejabberd's  <a href="https://xmpp.org/extensions/xep-0280.html">"Message Carbons"</a> module server and the Smack library on the application.</p>
+ This is enabled using Ejabberd's  <a href="https://xmpp.org/extensions/xep-0280.html">"Message Carbons"</a> module on the server and the Smack library on the front-end application.</p>
 
 <h3>Sending Images, User profile</h3>
 <iframe  width="1000" height="680" src="https://www.youtube.com/embed/dOUVLUR15P0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
