@@ -104,11 +104,11 @@ title: "Float: Map Oriented Marketplace Application"
 	<img src="auth_user_session.jpg" alt="auth_user_session" height="550px" width="600px"></li>
 	<h4>Security</h4>
 	<ul class="Functionality">
-		<li>The server uses https with a self-signed certificate and only the server has the private key</li>
-		<li>Client app only trusts the server</li>
-  		<li>The client only request to the server with their password once</li>
-  		<li>JWT is generated using an asymmetric cryptographic algorithm(rs256) and only the server has the private key</li>
-		<li>The password stored are hashed using multiple salt rounds</li>
+		<li>Https is enabled using a self-signed certificate and only the server has the private key</li>
+		<li>The client app only trusts the server</li>
+  		<li>Upon login the the server returns a refresh token and so the client's password is only used once</li>
+  		<li>The JWT is generated using an asymmetric cryptographic algorithm(rs256) and only the server has the private key</li>
+		<li>User passwords are hashed using multiple salt rounds</li>
 	</ul>
 	
       
