@@ -96,20 +96,21 @@ title: "Float: Map Oriented Marketplace Application"
    <img src="saga_state_machine.jpg" alt="saga_state_machine" height="800px" width="800px">
 
   <h3>Auth-service</h3>
-	<font size="5.8" font-family: 'Helvetica', 'Arial', 'Sans-Serif'>
-	<ol type="1">
+	<ul class="Functionality">
 		<li>Stores usernames and hashed passwords using the Node.js <a href="https://www.npmjs.com/package/bcrypt">Bcrypt library</a></li>
 		<li>Verifies passwords and grants a refresh and access token(JWT) <br>
+	</ul>
 		<h4>Authentication & User-session Handling</h4>
-		<img src="auth_user_session.jpg" alt="auth_user_session" height="800px" width="800px"></li>
-		<h4>Naive Security Claims</h4>
+	<img src="auth_user_session.jpg" alt="auth_user_session" height="800px" width="800px"></li>
+	<h4>Security</h4>
+	<ul class="Functionality">
 		<li>The server uses https with a self-signed certificate and only the server has the private key</li>
 		<li>Client app only trusts the server</li>
   		<li>The client only request to the server with their password once</li>
   		<li>JWT is generated using an asymmetric cryptographic algorithm(rs256) and only the server has the private key</li>
 		<li>The password stored are hashed using multiple salt rounds</li>
-	</ol>
-	</font>
+	</ul>
+	
       
    <h3>Chat-service(<a href="https://jcho7022.github.io/projects/chatbot/">Demo Video and Details</a>)</h3>
       <p>The chat-service has access to the MySQL database that is connected to ejabberd-service (XMPP),
