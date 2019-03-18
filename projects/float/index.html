@@ -134,7 +134,7 @@ title: "Float: Map Oriented Marketplace Application"
    <p>Stores and handles requests for user data such as profile image uri, background image uri, shop ownership, name.</p>
 
    <h3>Image-service</h3>
-   <p>Stores and handles requests for image files and its permissions. Image names are stored as MD5 hashes.</p>
+   <p>Stores and handles requests for image files and its permissions. An Image URI is stored as an MD5 hash.</p>
 
    <h3>Shop-service</h3>
    <p>Stores and handles requests for shop data such as its products, cover images.</p>
@@ -152,7 +152,7 @@ title: "Float: Map Oriented Marketplace Application"
 	<ol type="1">
 		<li>Design feature and acknowledge endpoint requirements</li>
 		<li>Design pre/post conditions and build test cases</li>
-  		<li>Implement required functions in repository</li>
+  		<li>Implement required functions in service repository</li>
   		<li>Iterate unit tests and fix code until all test cases pass</li>
   		<li>Create endpoint in microservice</li>
 		<li>Iterate integration test for service and fix code until all test cases pass</li>
