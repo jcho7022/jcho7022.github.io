@@ -7,8 +7,8 @@ title: "Float: Map Oriented Marketplace Application"
 <h2>Introduction</h2>
 <p>My friend and I built an
 	<a href="https://play.google.com/store/apps/details?id=com.floatapplication">Android application</a>
-	through which users can <a href="/projects/float/login.jpg">login</a>, 
-	<a href="/projects/float/shop.jpg">establish a shop(s)</a> 
+	which users can <a href="/projects/float/login.jpg">login</a>, 
+	<a href="/projects/float/shop.jpg">establish shop(s)</a> 
 	and <a href="/projects/float/shop_markers.jpg">place a marker on a map</a> through which promote their shop(s). 
 	Users can also interact with other users using <a href="/projects/float/messaging.jpg">in-app instant messaging</a>, 
 	search for items using a <a href="/projects/float/elastic_search.jpg">search bar</a>,
@@ -38,12 +38,10 @@ title: "Float: Map Oriented Marketplace Application"
 <p>Overall, I had fun working on this project and learned a lot about technologies and technical 
 	concepts that were not taught to me in school. The most fulfilling moments came throughout 
 	the process when we conceptualized, explained and eventually assembled and implemented working features.
-	As a result of this project, I discovered my particular passion for back-end development, and it has solidified
-	my plan to pursue a career in it. This project is no longer under development.
+	As a result of this project, I discovered my particular passion for backend development, and it has solidified
+	my plan to pursue a career in it.
 </p>
 
-<!-- <h3>Possible Monetization/Product Design</h3>We planned to monetize this project and build a start-up by sending out local ADs or offering special
-	shop markers or shop store front displays for a fee.-->
 <h3>Product Design</h3>
 <p>We tried to technically understand
 	similar crowdsourcing products such as Kijiji, Craigslist, Yelp, 
@@ -73,12 +71,11 @@ title: "Float: Map Oriented Marketplace Application"
 <h3>Api-gateway</h3>
 <ul class="Functionality">
 	<li>All app requests except instant messaging requests are made to the api-gateway,
-		which is responsible for routing requests to the appropriate services</li>
-	<li>Handles basic user authentication such as checking access tokens for tasks that require permission<br></li>
-	<li>Handles distributed transactions: <br>
-          Some application requests incorporate many services and,
-		in order to achieve modulation services, do not communicate with each other. 
-		As a result, the api-gateway is in charge of scheduling requests to multiple services.<br>
+		which is responsible for routing requests to appropriate services of the request</li>
+	<li>This component handles user identification by checking the JWT access tokens<br></li>
+	<li>This component handles distributed transactions to services: <br>
+          Some application requests incorporate many services and to ensure data integrety atomicity must be achieved.
+	<br>
           For example, when a user requests for sign-up the api-gateway:
 	  <br>
           1.Requests to auth-service to create user
@@ -87,11 +84,9 @@ title: "Float: Map Oriented Marketplace Application"
 					<br>
           3.Requests to chat-service to generate a xmpp profile
 					<br><br>
-		
-         However, if any of these steps fail to achieve transaction atomicity, previous requests that were made must be reverted. The api-gateway uses a 
-	  <a href="https://microservices.io/patterns/data/saga.html">“saga state machine”</a> to handle such tasks and maintain data
-		consistency over distributed services. For the example above, if transaction #3 fails, the saga state machine
-		reverts transaction #2 and #1.
+	If transaction #3 fails, transaction #2 and #1 must be reverted to maintain data integrety and to achieve this goal
+        the api-gateway uses a <a href="https://microservices.io/patterns/data/saga.html">“saga distributed transaction algorithm”</a>
+		that executes this transaction behaviour.
           </li>
 				</ul>
    <img src="saga_state_machine.jpg" alt="saga_state_machine" height="800px" width="800px">
