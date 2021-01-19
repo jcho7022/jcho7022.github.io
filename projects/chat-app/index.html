@@ -11,11 +11,10 @@ title: Messaging Server/Client
 <p>Tensorflow, Python, XMPP, Docker</p>
 <h3>Introduction</h3>
 <p>A chatbot trained based on <a href="http://files.pushshift.io/reddit/comments/">170 million Reddit comments</a>(240GB of data).
-Training the model took about a week with a GTX 1080ti and after training it, I put the model in a Tensorflow Docker container
- and used a Python <a href="https://docs.zombofant.net/aioxmpp/devel/">XMPP library</a> 
- to connect it with a messaging service I built.</p> 
+The model is deployed using a Tensorflow Docker container and a Python <a href="https://docs.zombofant.net/aioxmpp/devel/">XMPP library</a> is used
+ to connect with the messaging service backend.</p> 
 <h3>How It Works</h3>
-<p>When a message is passed in,the text is inputed into the chatbot model, which outputs 30 suggested replies.
+<p>When a message is passed in, the text is inputed into the chatbot model, which outputs 30 suggested replies.
  A Python script built on top of <a href="https://pypi.org/project/python-Levenshtein/">Levenshtein</a>
 is used to score the outputs and returns the output with the highest score.</p> 
 <img src="chatbot_client_interaction_diagram.jpg" alt="interaction diagram">
