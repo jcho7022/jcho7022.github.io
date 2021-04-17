@@ -5,8 +5,7 @@ title: "Float: Map Oriented Marketplace Application"
 <h1>Float: Map Oriented Marketplace Application (<a href="https://gitlab.com/JarvisAPI/float">Gitlab</a>)</h1>
 
 <h2>Introduction</h2>
-<p> An
-	<a href="https://play.google.com/store/apps/details?id=com.floatapplication">Android application</a>
+<p> An <a href="https://play.google.com/store/apps/details?id=com.floatapplication">Android application</a>
 	which users can <a href="/projects/float-app/login.jpg">login</a>, 
 	<a href="/projects/float-app/shop.jpg">establish shop(s)</a> 
 	and <a href="/projects/float-app/shop_markers.jpg">place a marker on a map</a> to promote their shop(s). 
@@ -27,17 +26,17 @@ title: "Float: Map Oriented Marketplace Application"
 	and interact with customers, all within a single application.</p>
 
 <h3>Development Process</h3>
-<p>As our first step, we researched how to build servers, what frameworks to use, and ways to set up the development environment.
+<p>As our first step, we researched how to build servers, what frameworks to use, and ways to setup the development environment.
 	We started with small sub-projects and built our way up to bigger projects, solving the challenges we came upon one
 	at a time. There were times when it took hours, and even days to solve technical problems, but the joy that came
 	from solving a problem pushed us on towards the next challenge. I worked on the project part-time through the school
-	year, and devoted full-time attention to it during the summer and winter breaks. </p>
+	year, and devoted full-time during the summer and winter breaks. </p>
 
 <h3>Outcome</h3>
 <p>Overall, I had fun working on this project and learned a lot about technologies and technical 
 	concepts that were not taught to me in school. The most fulfilling moments came throughout 
 	the process when we conceptualized, explained and eventually assembled and implemented working features.
-	As a result of this project, I discovered my particular passion for backend development, and it has solidified
+	As a result of this project, I discovered my particular passion for backend development, and solidified
 	my plan to pursue a career in it.
 </p>
 
@@ -45,13 +44,13 @@ title: "Float: Map Oriented Marketplace Application"
 <ul class="contributions">	  
         <li>Designed, implemented, and tested RESTful APIs (api-gateway, chat, auth, user, image, map services)</li>
         <li>Built application components from front-end to back-end (login, messaging, user profile, shop components)</li>
-	<li>Setup and integrated frameworks such as Docker, MySQL, Firebase, XMPP, OAuth</li>
+	<li>Setuped and integrated frameworks/APIs such as Docker, MySQL, Firebase, XMPP, OAuth</li>
 	<li>Wrote Docker, Docker-compose files, as well as shell scripts to automate deployment and testing</li>
 	<li>Wrote integration and unit tests</li>
-	<li>Implemented user session mechanism with JWTs as well as user authentication</li>
-	<li>Set up HTTPS, TLS(XMPP) for client and server</li>
+	<li>Implemented the user session mechanism with JWTs as well as user authentication</li>
+	<li>Setuped HTTPS, TLS(XMPP) for client and server</li>
 	<li>Built UI and app illustrations</li>
-	<li>Version control</li>
+	<li>Practiced Version control</li>
 	</ul>
 
 <h2>Implementation</h2>
@@ -64,11 +63,11 @@ title: "Float: Map Oriented Marketplace Application"
 
 <h3>Api-gateway</h3>
 <ul class="Functionality">
-	<li>All app requests except instant messaging requests are made to the api-gateway,
-		which is responsible for routing requests to appropriate services of the request</li>
+	<li>This component handles all app requests except instant messaging requests,
+		and is responsible for routing requests to appropriate services accordingly to the request</li>
 	<li>This component handles user identification by checking the JWT access tokens<br></li>
 	<li>This component handles distributed transactions to services: <br>
-          Some application requests incorporate many services and to ensure data integrety atomicity must be achieved.
+          Some application requests incorporate many services and to ensure data integrety, atomicity must be achieved.
 	<br>
           For example, when a user requests for sign-up the api-gateway:
 	  <br>
@@ -78,7 +77,7 @@ title: "Float: Map Oriented Marketplace Application"
 					<br>
           3.Requests to chat-service to generate a xmpp profile
 					<br><br>
-	If transaction #3 fails, transaction #2 and #1 must be reverted to maintain data integrety and to achieve this goal
+	If transaction #3 fails, transaction #2 and #1 must be reverted to ensure data integrety and to achieve this goal
         the api-gateway uses a <a href="https://microservices.io/patterns/data/saga.html">“saga distributed transaction algorithm”</a>
 		that executes this transaction behaviour.
           </li>
@@ -96,7 +95,7 @@ title: "Float: Map Oriented Marketplace Application"
 	<ul class="Functionality">
 		<li>Https is enabled using a self-signed certificate and only the server has the private key</li>
 		<li>The client app only trusts the server</li>
-  		<li>Upon login the the server returns a refresh token and so the client's password is only used once</li>
+  		<li>Upon login the the server returns a refresh token and the client's password is only used once</li>
   		<li>The JWT is generated using an asymmetric cryptographic algorithm(rs256) and only the server has the private key</li>
 		<li>User passwords are hashed using multiple salt rounds</li>
 	</ul>
