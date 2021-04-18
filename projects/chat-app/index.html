@@ -16,7 +16,7 @@ The model is deployed using a Tensorflow Docker container and a Python <a href="
 <h3>How It Works</h3>
 <p>When a message is passed in, the text is inputed into the chatbot model, which outputs 30 suggested replies.
  A Python script built on top of <a href="https://pypi.org/project/python-Levenshtein/">Levenshtein</a>
-is used to score the outputs and returns the output with the highest score.</p> 
+scores the outputs and returns the output with the highest score.</p> 
 <img src="chatbot_client_interaction_diagram.jpg" alt="interaction diagram">
 <p><br><br></p>
 
@@ -32,7 +32,7 @@ Front-end: Java(Android), Sqlite, XMPP(<a href="https://github.com/igniterealtim
 <iframe  width="1000" height="680" src="https://www.youtube.com/embed/B7QSXHUyd3U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h3>How I Built it</h3>
 <h4>Server</h4>
-<p>Using the Docker version of a XMPP framework <a href="https://www.ejabberd.im/">Ejabberd</a> I enabled the module 
+<p>Using the Docker version of an XMPP framework <a href="https://www.ejabberd.im/">Ejabberd</a> I enabled the module 
  <a href="https://xmpp.org/extensions/xep-0313.html">Message Archives</a> and 
 connected it to a MySql database. Every time a message is passed in, before delivering it to the recipient, Ejabberd archives the message into the database.
 Also, whenever a message is archived a trigger I setup in the database updates the dialog list for the sender and recipient. 
